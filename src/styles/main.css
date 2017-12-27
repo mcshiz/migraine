@@ -12,7 +12,8 @@ body {
   background: #5DD39E;
   font-family: 'Pacifico', cursive;
   letter-spacing: 2px;
-  font-weight: 100; }
+  font-weight: 100;
+  margin-bottom: 30px; }
 
 .button {
   display: inline-block;
