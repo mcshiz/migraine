@@ -30,8 +30,6 @@ class Home extends Component {
             startDate: moment().utc().utcOffset(-360).startOf('day').subtract(1),
             endDate: moment().utc().utcOffset(-360).endOf('day').add(1)
         });
-
-
     }
 
     handleChange(startEnd, date) {
@@ -89,14 +87,18 @@ class Home extends Component {
             // If this is the first row, generate the headings
             if(row === 0){
                 for(let key in data[row]){
-                    headers += key + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
-                    csvData += data[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
-                    keysCounter++
+                    if(key !== 'timestamp') {
+                        headers += key + (keysCounter+1 < keysAmount -1 ? ',' : '\r\n' );
+                        csvData += data[row][key] + (keysCounter+1 < keysAmount -1 ? ',' : '\r\n' );
+                        keysCounter++
+                    }
                 }
             }else{
                 for(let key in data[row]){
-                    csvData += data[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
-                    keysCounter++
+                    if(key !== 'timestamp') {
+                        csvData += data[row][key] + (keysCounter+1 < keysAmount -1? ',' : '\r\n' );
+                        keysCounter++
+                    }
                 }
             }
 

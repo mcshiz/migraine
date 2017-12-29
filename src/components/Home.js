@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import moment from 'moment';
-
 import {ClipLoader} from 'halogenium'
 
 class Home extends Component {
@@ -61,7 +60,7 @@ class Home extends Component {
     }
     saveData() {
         if (this.state.painValue === "") {
-            alert("Please enter pain value first")
+            alert("Please enter pain value first");
             return;
         }
         this.setState({loading: true});

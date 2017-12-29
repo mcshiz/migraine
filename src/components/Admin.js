@@ -13,6 +13,7 @@ class Admin extends React.Component {
     }
     clearData(){
         localStorage.clear();
+        alert('Data Cleared');
     }
 
     loadExampleData() {
@@ -27,7 +28,8 @@ class Admin extends React.Component {
         ];
         exampleData.map((obj) => {
             localStorage.setItem(obj.date, JSON.stringify(obj.obj))
-        })
+        });
+        alert("Data Loaded")
 
     }
     render() {

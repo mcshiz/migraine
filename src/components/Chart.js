@@ -9,6 +9,7 @@ class Chart extends React.Component {
         //scale the pressure so it fits on same x-axis
         for(let i = 0; i < data.length; i++) {
             if(lowerPressure === upperPressure) {
+                // set some default boundaries
                 data[i]['pressure'] = 10 * ((data[i]['pressure'] - 1000) / (1050 - 1000))
             } else {
                 data[i]['pressure'] = 10 * ((data[i]['pressure'] - lowerPressure) / (upperPressure - lowerPressure))
