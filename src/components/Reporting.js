@@ -62,14 +62,18 @@ class Home extends Component {
                     entries.push(obj)
                 }
             }
-            resolve(entries);
+
+            if(entries.length > 0) {
+                resolve(entries);
+            } else {
+                reject("No Entries In Range")
+            }
         })
 
     }
 
 
-    generateCSV() {
-        let data = this.filterData();
+    generateCSV(data) {
         let csvData = "";
         let headers = "";
         if(data.length <= 0) {
@@ -95,33 +99,32 @@ class Home extends Component {
 
             keysCounter = 0
         }
-
         return headers + csvData
     }
 
     showCharts() {
         this.filterData()
-            .then((data) => {
-                console.log('a',data);
-                this.setState({
-                    data: data
-                }, () => {
-                    let visible = this.state.showCharts;
-                    this.setState({
-                        showCharts: !visible
-                    })
-                })
-            });
+        .then((data) => {
+            this.setState({
+                data: data
+            })
+        })
+        .then(data => {
+            let visible = this.state.showCharts;
+            this.setState({
+                showCharts: !visible
+            })
+        })
+        .catch(err => alert(err));
     }
 
     showCSVDump() {
-        let data = this.generateCSV();
-        this.setState({
-            CSVDump: data
-        }, function() {
-            this.setState({
-                showCSVDump: !this.state.showCSVDump
-            })
+        this.filterData()
+        .then(data => {
+            let csv = this.generateCSV(data);
+            this.setState({ CSVDump: csv});
+        }).then(data => {
+            this.setState({ showCSVDump: !this.state.showCSVDump} )
         })
     }
 

@@ -7,9 +7,9 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            painValue: 0,
-            sleepValue: 0,
-            workValue: 0,
+            painValue: "",
+            sleepValue: "",
+            workValue: "",
             notesDisplay: 0,
             workDisplay: 0,
             lat: null,
