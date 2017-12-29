@@ -58,12 +58,15 @@ class Home extends Component {
             for (let i = 0; i < keys.length; i++) {
                 let obj = JSON.parse(localStorage.getItem(keys[i]));
                 if(moment(keys[i]).isSameOrAfter(this.state.startDate) && moment(keys[i]).isSameOrBefore(this.state.endDate)) {
+                    obj['timestamp'] = moment(keys[i]);
                     obj['date'] = moment(keys[i]).format('MM/DD/YY h:mm:ss a');
                     entries.push(obj)
                 }
             }
-
             if(entries.length > 0) {
+                entries.sort(function (left, right) {
+                    return moment.utc(left.timestamp).diff(moment.utc(right.timestamp))
+                });
                 resolve(entries);
             } else {
                 reject("No Entries In Range")
