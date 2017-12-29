@@ -13,7 +13,7 @@ class Main extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/migraine" component={Home} />
                 <Route path="/reporting" component={Reporting} />
             </Switch>
         )
