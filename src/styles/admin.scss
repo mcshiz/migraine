@@ -1,0 +1,32 @@
+.button{
+  &.warning {
+    color: black;
+    background: coral;
+    box-shadow: 0 5px 0px coral;
+    border-bottom: 2px solid #f54504;
+    &:hover {
+      color: black;
+      background: coral;
+      box-shadow: 0 5px 0px coral;
+      border-bottom: 2px solid #f54504;
+      -webkit-transition: all 0.1s ease-in;
+      -o-transition: all 0.1s ease-in;
+      transition: all 0.1s ease-in;
+    }
+  }
+}
+
+.notes-container {
+  &.admin {
+    border-top: 2px solid cornflowerblue;
+    margin-top: 10px;
+    &.example {
+      margin-top: 0;
+      border-top: none;
+    }
+  }
+  .button-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}

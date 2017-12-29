@@ -22,6 +22,11 @@ class App extends Component {
                     text: 'Reporting',
                     link: '/reporting',
                     icon: 'fa-bar-chart'
+                },
+                {
+                    text: 'Admin',
+                    link: '/admin',
+                    icon: 'fa-cog'
                 }
             ]
         }
