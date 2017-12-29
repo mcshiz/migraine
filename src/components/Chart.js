@@ -1,13 +1,7 @@
 import React from 'react'
 import {ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 class Chart extends React.Component {
-    componentWillMount() {
-        window.addEventListener("orientationchange", function() {
-            if (window.orientation == "90" || window.orientation == "-90") {
-                this.forceUpdate()
-            }
-        }, false);
-    }
+
     render() {
         let data = this.props.data;
         let upperPressure = Math.max.apply(Math,data.map(function(o){return o.pressure;}));
