@@ -42,7 +42,7 @@ class Menu extends React.Component {
                         <span>{ this.props.title }</span>
                     </div>
                 </div>
-                <MenuLinks menuStatus={ menuStatus } links={this.props.links}/>
+                <MenuLinks menuStatus={ menuStatus } links={this.props.links} toggle={this._menuToggle}/>
             </div>
         )
     }

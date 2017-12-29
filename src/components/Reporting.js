@@ -93,7 +93,7 @@ class Home extends Component {
                         keysCounter++
                     }
                 }
-            }else{
+            } else {
                 for(let key in data[row]){
                     if(key !== 'timestamp') {
                         csvData += data[row][key] + (keysCounter+1 < keysAmount -1? ',' : '\r\n' );
@@ -114,7 +114,7 @@ class Home extends Component {
                 data: data
             })
         })
-        .then(data => {
+        .then(() => {
             let visible = this.state.showCharts;
             this.setState({
                 showCharts: !visible
@@ -128,9 +128,10 @@ class Home extends Component {
         .then(data => {
             let csv = this.generateCSV(data);
             this.setState({ CSVDump: csv});
-        }).then(data => {
+        }).then(() => {
             this.setState({ showCSVDump: !this.state.showCSVDump} )
         })
+        .catch(err => alert(err));
     }
 
     render() {
@@ -150,6 +151,7 @@ class Home extends Component {
                     <button className="button" onClick={this.showCSVDump}>Generate CSV</button>
                     <button className="button" onClick={this.showCharts}>View Chart</button>
                 </div>
+                <span>Total Entries: {localStorage.length}</span>
                 {this.state.showCSVDump ? <TextDump csv={this.state.CSVDump}/> : null }
                 {this.state.showCharts ? <Chart data={this.state.data}/> : null }
             </div>
