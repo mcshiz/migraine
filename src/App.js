@@ -15,13 +15,13 @@ class App extends Component {
             links: [
                 {
                     text: 'Home',
-                    link: '/',
-                    icon: 'fa-pencil-square-o'
+                    link: '/migraine',
+                    icon: 'fa-home'
                 },
                 {
                     text: 'Reporting',
                     link: '/reporting',
-                    icon: 'fa-pencil-square-o'
+                    icon: 'fa-bar-chart'
                 }
             ]
         }
