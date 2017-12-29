@@ -7,7 +7,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 1,
+            painValue: 0,
             sleepValue: 0,
             workValue: 0,
             notesDisplay: 0,
@@ -60,13 +60,17 @@ class Home extends Component {
         }
     }
     saveData() {
+        if (this.state.painValue === "") {
+            alert("Please enter pain value first")
+            return;
+        }
         this.setState({loading: true});
         let pressure = null;
         let location = "";
         let notes = document.getElementById('notes') ? document.getElementById('notes').value : "";
-        let date = moment().toISOString();
+        let date = moment().utc().utcOffset(-360).toISOString();
         let obj = {
-            pain: this.state.value,
+            pain: this.state.painValue,
             work: this.state.workValue,
             sleep: this.state.sleepValue,
             notes: notes
@@ -91,8 +95,9 @@ class Home extends Component {
 
     handleRatingChange(e) {
         let value = e.target.value;
+        //prevent from entering higher than 10
         if (value <= 10) {
-            this.setState({value: value})
+            this.setState({painValue: value})
         }
     }
 
@@ -131,7 +136,7 @@ class Home extends Component {
             <div id="home">
                 <p className="App-intro">
                     <input type="number" min="0" max="10" maxLength={2}
-                           onChange={this.handleRatingChange.bind(this)} value={this.state.value}/>
+                           onChange={this.handleRatingChange.bind(this)} value={this.state.painValue}/>
                     <br/>
                     <span className='rating-helper'>Rate 1 - 10</span>
                 </p>

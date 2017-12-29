@@ -27,9 +27,10 @@ class Home extends Component {
 
     componentWillMount() {
         this.setState({
-            startDate: moment().startOf('day'),
-            endDate: moment().endOf('day')
-        })
+            startDate: moment().utc().utcOffset(-360).startOf('day').subtract(1),
+            endDate: moment().utc().utcOffset(-360).endOf('day').add(1)
+        });
+
 
     }
 
@@ -51,55 +52,66 @@ class Home extends Component {
 
 
     filterData() {
-        let entries = [];
-        let keys = Object.keys(localStorage);
-        for (let i = 0; i < keys.length; i++) {
-            let obj = JSON.parse(localStorage.getItem(keys[i]));
-            if(moment(keys[i]).isSameOrAfter(this.state.startDate) && moment(keys[i]).isSameOrBefore(this.state.endDate)) {
-                obj['date'] = moment(keys[i]).format('MM/DD/YY h:mm:ss a')
-                entries.push(obj)
+        return new Promise((resolve, reject) => {
+            let entries = [];
+            let keys = Object.keys(localStorage);
+            for (let i = 0; i < keys.length; i++) {
+                let obj = JSON.parse(localStorage.getItem(keys[i]));
+                if(moment(keys[i]).isSameOrAfter(this.state.startDate) && moment(keys[i]).isSameOrBefore(this.state.endDate)) {
+                    obj['date'] = moment(keys[i]).format('MM/DD/YY h:mm:ss a');
+                    entries.push(obj)
+                }
             }
-        }
-        return entries;
+            resolve(entries);
+        })
+
     }
 
 
     generateCSV() {
         let data = this.filterData();
-        let csv = "";
-        // Loop the array of objects
-        for (let row = 0; row < data.length; row++) {
+        let csvData = "";
+        let headers = "";
+        if(data.length <= 0) {
+            return "Noting in date range";
+        }
+        for(let row = 0; row < data.length; row++){
             let keysAmount = Object.keys(data[row]).length;
             let keysCounter = 0;
-            if (row === 0) {
-                for (let key in data[row]) {
-                    csv += key + (keysCounter + 1 < keysAmount ? ',' : '\r\n');
+
+            // If this is the first row, generate the headings
+            if(row === 0){
+                for(let key in data[row]){
+                    headers += key + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
+                    csvData += data[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
                     keysCounter++
                 }
-            } else {
-                for (let key in data[row]) {
-                    let escapedKey = data[row][key];
-                    if (typeof data[row][key] === "string") {
-                        escapedKey = data[row][key].replace(',', '')
-                    }
-                    csv += escapedKey + (keysCounter + 1 < keysAmount ? ',' : '\r\n');
+            }else{
+                for(let key in data[row]){
+                    csvData += data[row][key] + (keysCounter+1 < keysAmount ? ',' : '\r\n' );
                     keysCounter++
                 }
             }
+
             keysCounter = 0
         }
-        return csv
+
+        return headers + csvData
     }
 
     showCharts() {
-        let data = this.filterData();
-        this.setState({
-            data: data
-        }, function() {
-            this.setState({
-                showCharts: !this.state.showCharts
-            })
-        })
+        this.filterData()
+            .then((data) => {
+                console.log('a',data);
+                this.setState({
+                    data: data
+                }, () => {
+                    let visible = this.state.showCharts;
+                    this.setState({
+                        showCharts: !visible
+                    })
+                })
+            });
     }
 
     showCSVDump() {
