@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-
 import Menu from './components/Menu'
 import Main from './components/Main'
-import './App.css';
-import logo from './logo.svg';
 import './styles/main.css'
 import './styles/menu.css'
 

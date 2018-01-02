@@ -11,9 +11,10 @@ class Home extends Component {
             workValue: "",
             notesDisplay: 0,
             workDisplay: 0,
+            sleepDisplay: 0,
             lat: null,
             lon: null,
-            location: 54952,
+            location: null,
             loading: false,
             lastLogged: null
         };
@@ -60,7 +61,7 @@ class Home extends Component {
     }
     saveData() {
         if (this.state.painValue === "") {
-            alert("Please enter pain value first");
+            alert("Please enter a pain value first");
             return;
         }
         this.setState({loading: true});
@@ -87,7 +88,8 @@ class Home extends Component {
                 localStorage.setItem(date, JSON.stringify(obj));
                 this.setState({
                     lastLogged: moment().format('MM/DD/YY h:mm:ss a'),
-                    loading: false})
+                    loading: false
+                })
             })
             .catch(err => console.log(err));
     }
