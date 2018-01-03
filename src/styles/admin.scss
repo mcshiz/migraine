@@ -1,3 +1,4 @@
+@import "variables.scss";
 .button{
   &.warning {
     color: black;
@@ -18,7 +19,7 @@
 
 .notes-container {
   &.admin {
-    border-top: 2px solid cornflowerblue;
+    border-top: 2px solid $blue;
     margin-top: 10px;
     &.example {
       margin-top: 0;

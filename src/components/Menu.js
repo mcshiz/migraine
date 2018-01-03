@@ -1,7 +1,6 @@
 import React from 'react'
 import MenuLinks  from './MenuLinks'
 
-
 class Menu extends React.Component {
     constructor(props) {
         super(props);

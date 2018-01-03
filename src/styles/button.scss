@@ -1,0 +1,35 @@
+@import "variables.scss";
+.button {
+	display: inline-block;
+	padding: 15px;
+	margin-right: 5px;
+	height: 50px;
+	min-width: 130px;
+	background: $blue;
+	border: none;
+	outline: none;
+	color: white;
+	font-family: inherit;
+	font-weight: 400;
+	font-size: 20px;
+	border-radius: 3px;
+	line-height: 1px;
+	box-shadow: 0 5px 0px darken($blue, 0%);
+	border-bottom: 2px solid darken($blue, 3%);
+	.loader-container {
+		display: inline-block;
+		margin-left: 10px;
+	}
+	&:hover {
+		background: darken($blue, 5%);
+		box-shadow: 0 4px 1px darken($blue, 5%);
+		border-bottom: 2px solid darken($blue, 8%);
+		transition: all 0.1s ease-in;
+	}
+
+	&:active {
+		transform: translateY(4px);
+		border-bottom-width: 2px;
+		box-shadow: none;
+	}
+}

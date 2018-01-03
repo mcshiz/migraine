@@ -1,23 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url('./variables.scss');
-body {
-  background: #5DD39E;
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 2px;
-  font-weight: 100;
-  margin: 0 0 30px 0;
-  width: 100%;
-  text-align: center;
-}
-
 .button {
   display: inline-block;
-
   padding: 15px;
   margin-right: 5px;
   height: 50px;
   min-width: 130px;
-  background: cornflowerblue;
+  background: #6495ed;
   border: none;
   outline: none;
   color: white;
@@ -41,8 +28,16 @@ body {
     border-bottom-width: 2px;
     box-shadow: none; }
 
+body {
+  background: #5DD39E;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 2px;
+  font-weight: 100;
+  margin: 0 0 30px 0;
+  text-align: center; }
+
 textarea {
-  border: 2px solid cornflowerblue;
+  border: 2px solid #6495ed;
   border-radius: 5px;
   font-family: sans-serif;
   width: 90%;
@@ -56,12 +51,12 @@ textarea {
 .notes-container {
   padding: 0px 10px;
   text-align: left;
-  border-bottom: 2px solid cornflowerblue; }
+  border-bottom: 2px solid #6495ed; }
   .notes-container .add {
     padding: 10px;
     display: block; }
   .notes-container.text {
-    border-top: 2px solid cornflowerblue; }
+    border-top: 2px solid #6495ed; }
   .notes-container.sleep .rating {
     display: block;
     margin: auto;
@@ -80,7 +75,7 @@ textarea {
 .header {
   height: 4em;
   background: blanchedalmond;
-  border-bottom: 2px solid cornflowerblue; }
+  border-bottom: 2px solid #6495ed; }
 
 #home input {
   width: 5rem;
@@ -88,7 +83,7 @@ textarea {
   font-size: 3rem; }
 
 input {
-  border: 2px solid cornflowerblue;
+  border: 2px solid #6495ed;
   border-radius: 5px;
   font-family: sans-serif;
   text-align: center;
