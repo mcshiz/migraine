@@ -2,6 +2,8 @@
 A quick little app I built while at home for christmas when my Father-in-law wanted
 to track his wife's migraines in relation to the barometric pressure and a few other factors.
 
+The app is built for mobile and was really only styled for mobile.
+
 ### Tech
 <ul>
     <li>React</li>
