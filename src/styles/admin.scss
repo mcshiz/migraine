@@ -3,12 +3,13 @@
   &.warning {
     color: black;
     background: coral;
-    box-shadow: 0 5px 0px coral;
+    box-shadow: 0 5px 0 coral;
     border-bottom: 2px solid #f54504;
+    margin: 20px 0;
     &:hover {
       color: black;
       background: coral;
-      box-shadow: 0 5px 0px coral;
+      box-shadow: 0 5px 0 coral;
       border-bottom: 2px solid #f54504;
       -webkit-transition: all 0.1s ease-in;
       -o-transition: all 0.1s ease-in;
@@ -17,17 +18,3 @@
   }
 }
 
-.notes-container {
-  &.admin {
-    border-top: 2px solid $blue;
-    margin-top: 10px;
-    &.example {
-      margin-top: 0;
-      border-top: none;
-    }
-  }
-  .button-container {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}

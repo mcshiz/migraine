@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import moment from 'moment';
+import LastLogged from './LastLogged'
 import {ClipLoader} from 'halogenium'
 
 class Home extends Component {
@@ -19,7 +19,6 @@ class Home extends Component {
             lastLogged: null
         };
 
-        this.getLastUpdated = this.getLastUpdated.bind(this);
         this.saveData = this.saveData.bind(this);
         this.handleAddStat = this.handleAddStat.bind(this);
         this.handleRatingChange = this.handleRatingChange.bind(this);
@@ -27,38 +26,6 @@ class Home extends Component {
         this.handleSleepChange = this.handleSleepChange.bind(this);
     }
 
-    componentWillMount() {
-        this.getLocation();
-        this.getLastUpdated()
-    }
-    getLastUpdated() {
-        let keys = Object.keys(localStorage);
-        let lastLogged = null;
-        for(let i = 0; i< keys.length; i++) {
-            if(keys[i + 1] !== 'undefined') {
-                if(moment(keys[i]).isAfter(moment(keys[i+1]))) {
-                    lastLogged = moment(keys[i]);
-                } else {
-                    lastLogged = moment(keys[i]);
-                }
-            }
-            this.setState({lastLogged: lastLogged.format('MM/DD/YY h:mm:ss a')});
-        }
-    }
-    getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                this.setState({
-                    lat: position.coords.latitude,
-                    lon: position.coords.longitude
-                })
-            });
-        } else {
-            this.setState({
-                location: 54952
-            })
-        }
-    }
     saveData() {
         if (this.state.painValue === "") {
             alert("Please enter a pain value first");
@@ -68,27 +35,20 @@ class Home extends Component {
         let pressure = null;
         let location = "";
         let notes = document.getElementById('notes') ? document.getElementById('notes').value : "";
-        let date = moment().utc().utcOffset(-360).toISOString();
         let obj = {
             pain: this.state.painValue,
             work: this.state.workValue,
             sleep: this.state.sleepValue,
             notes: notes
         };
-        if(this.state.lat === null || this.state.lon === null) {
-            location = this.state.location;
-        } else {
-            location = this.state.lat+','+this.state.lon
-        }
-        fetch('http://api.apixu.com/v1/current.json?key=eb565e87eb4e4cddb96162323172812&q='+location)
+        fetch('http://api.apixu.com/v1/current.json?key=eb565e87eb4e4cddb96162323172812&q='+this.props.locationParam)
             .then(res => res.json())
             .then(data => {
-                pressure = data.current.pressure_mb;
-                obj.pressure = pressure;
-                localStorage.setItem(date, JSON.stringify(obj));
+                obj.pressure = data.current.pressure_mb;
+                this.props.updateData(obj);
                 this.setState({
-                    lastLogged: moment().format('MM/DD/YY h:mm:ss a'),
-                    loading: false
+                    loading: false,
+                    painValue: ""
                 })
             })
             .catch(err => console.log(err));
@@ -136,8 +96,8 @@ class Home extends Component {
         return (
             <div id="home">
                 <p className="App-intro">
-                    <input type="number" min="0" max="10" maxLength={2}
-                           onChange={this.handleRatingChange.bind(this)} value={this.state.painValue}/>
+                    <input type="number" min="0" max="10" maxLength={2} id="pain-input"
+                           onChange={this.handleRatingChange} value={this.state.painValue}/>
                     <br/>
                     <span className='rating-helper'>Rate 1 - 10</span>
                 </p>
@@ -159,7 +119,7 @@ class Home extends Component {
                         : null}
                 </div>
                 <div className="notes-container work">
-                        <span className="add sleep"
+                        <span className="add work"
                               onClick={this.handleAddStat.bind(this, "work")}><b>+</b> Add Work</span>
                     {this.state.workDisplay ?
                         <span className='rating'>
@@ -176,7 +136,7 @@ class Home extends Component {
                     </div>
                 </button>
                 <br/>
-                <b className='last-logged'>{this.state.lastLogged ? <span>Last Logged: {this.state.lastLogged}</span>: null}</b>
+                <LastLogged data={this.props.data}/>
             </div>
         );
     }

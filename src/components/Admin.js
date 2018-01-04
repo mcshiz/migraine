@@ -3,10 +3,6 @@ import '../styles/admin.css'
 class Admin extends React.Component {
     constructor() {
         super();
-        this.state = {
-            clearDisplay: 0,
-            exampleDisplay: 0
-        };
         this.clearData = this.clearData.bind(this);
         this.loadExampleData = this.loadExampleData.bind(this)
 
@@ -35,27 +31,13 @@ class Admin extends React.Component {
     render() {
         return (
             <div>
-                <div className="notes-container admin clear">
-                    <span className="add" onClick={() => this.setState({clearDisplay: !this.state.clearDisplay})}><span>+</span> Clear Data</span>
-                    {this.state.clearDisplay ?
-                        <div className="button-container">
-                            <button className="button warning" onClick={this.clearData}>Clear Data</button>
-                        </div>
-                        : null}
+                <div>
+                    <button className="button warning clear" onClick={this.clearData}>Clear Data</button>
                 </div>
-                <div className="notes-container admin example">
-                    <span className="add" onClick={() => this.setState({exampleDisplay: !this.state.exampleDisplay})}><span>+</span> Example Data</span>
-                    {this.state.exampleDisplay ?
-                        <div className="button-container">
-                            <button className="button warning" onClick={this.loadExampleData}>Load Example Data</button>
-                        </div>
-                        : null}
+                <div>
+                    <button className="button warning load-example-data" onClick={this.loadExampleData}>Load Example Data</button>
                 </div>
             </div>
-
-
-
-
         )
     }
 }
