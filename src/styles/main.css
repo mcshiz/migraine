@@ -34,7 +34,13 @@ body {
   letter-spacing: 2px;
   font-weight: 100;
   margin: 0 0 30px 0;
-  text-align: center; }
+  text-align: center;
+  height: 100%;
+  overflow: auto; }
+
+html {
+  overflow: hidden;
+  height: 100%; }
 
 textarea {
   border: 2px solid #6495ed;
@@ -73,9 +79,11 @@ textarea {
       letter-spacing: 0; }
 
 .header {
-  height: 4em;
   background: blanchedalmond;
-  border-bottom: 2px solid #6495ed; }
+  border-bottom: 2px solid #6495ed;
+  height: 40px;
+  font-size: 24px;
+  padding: 5px 0; }
 
 #home input {
   width: 5rem;

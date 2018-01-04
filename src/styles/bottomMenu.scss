@@ -1,0 +1,27 @@
+#bottom-menubar {
+	position: fixed;
+	bottom: 0;
+	height: 40px;
+	width: 100%;
+	background: white;
+	a {
+		display: inline-block;
+		width: 33%;
+		height: 40px;
+		vertical-align: middle;
+		&:visited {
+			color: black;
+		}
+		li {
+			list-style-type: none;
+			line-height: 40px;
+			font-size: 1.5em;
+
+		}
+		li:nth-child(2) {
+			border-right: 1px solid lightblue;
+			border-left: 1px solid lightblue;
+		}
+	}
+
+}

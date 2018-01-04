@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Menu from './components/Menu'
+import BottomMenu from './components/BottomMenu'
 import Main from './components/Main'
 import './styles/main.css'
-import './styles/menu.css'
 
 class App extends Component {
     constructor(props){
@@ -33,10 +32,13 @@ class App extends Component {
             <div className="App">
                 <div className="center">
                     <div className="header">
-                        <Menu title="Kates Migraines" links={this.state.links}/>
+                        <div>Kates Migraines</div>
                     </div>
                     <div className="container-fluid">
                         <Main />
+                    </div>
+                    <div className="menu">
+                        <BottomMenu title="Kates Migraines" links={this.state.links}/>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,12 @@ body {
 	font-weight: 100;
 	margin: 0 0 30px 0;
 	text-align: center;
+	height: 100%;
+	overflow: auto;
+}
+html {
+	overflow: hidden;
+	height: 100%;
 }
 
 textarea {
@@ -57,9 +63,11 @@ textarea {
 }
 
 .header {
-	height: 4em;
 	background: $yellow;
 	border-bottom: 2px solid $blue;
+	height: 40px;
+	font-size: 24px;
+	padding: 5px 0;
 }
 
 #home {
