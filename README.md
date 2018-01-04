@@ -9,7 +9,10 @@ to track his wife's migraines in relation to the barometric pressure and a few o
     <li>LocalStorage</li>
     <li>Moment JS</li>
     <li>Recharts (graphing)</li>
+    <li>Jest and Enzyme</li>
 </ul>
 
 ### Notes
 Next time I would use Redux, I didn't think I would have this much state management when I first talked about the project.
+<br/>
+The tests for this are overkill but I was just playing with a few things.
