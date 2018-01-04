@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LastLogged Component Should compare the component with a snapshot 1`] = `
+<b
+  className="last-logged"
+>
+  Last Logged: 
+  12/29/17 9:33:33 am
+</b>
+`;

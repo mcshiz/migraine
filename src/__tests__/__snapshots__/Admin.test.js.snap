@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin Component Should compare the component with a snapshot 1`] = `
+<div>
+  <div>
+    <button
+      className="button warning clear"
+      onClick={[Function]}
+    >
+      Clear Data
+    </button>
+  </div>
+  <div>
+    <button
+      className="button warning load-example-data"
+      onClick={[Function]}
+    >
+      Load Example Data
+    </button>
+  </div>
+</div>
+`;
