@@ -1,4 +1,4 @@
-##[Link to app](https://mcshiz.github.io/migraine/)
+## [Link to app](https://mcshiz.github.io/migraine/)
 ### About
 A quick little app I built while at home for christmas when my Father-in-law wanted
 to track his wife's migraines in relation to the barometric pressure and a few other factors.
