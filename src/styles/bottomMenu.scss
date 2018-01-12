@@ -1,3 +1,4 @@
+@import './variables.scss';
 #bottom-menubar {
 	position: fixed;
 	bottom: 0;
@@ -9,6 +10,10 @@
 		width: 33%;
 		height: 40px;
 		vertical-align: middle;
+		color: black;
+		&:active {
+			color: $blue;
+		}
 		&:visited {
 			color: black;
 		}
@@ -18,10 +23,10 @@
 			font-size: 1.5em;
 
 		}
-		li:nth-child(2) {
-			border-right: 1px solid lightblue;
-			border-left: 1px solid lightblue;
-		}
+	}
+	:nth-child(2) {
+		border-right: 1px solid $blue;
+		border-left: 1px solid $blue;
 	}
 
 }
