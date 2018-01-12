@@ -72,8 +72,8 @@ class Main extends React.Component {
         return (
             <Switch>
                 <Route exact path="/migraine" render={HomeWithData} />
-                <Route path="/reporting" render={ReportingWithData} />
-                <Route path="/admin" render={AdminWithData} />
+                <Route path="/migraine/reporting" render={ReportingWithData} />
+                <Route path="/migraine/admin" render={AdminWithData} />
                 <Route component={NotFound} />
             </Switch>
         )

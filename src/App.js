@@ -16,12 +16,12 @@ class App extends Component {
                 },
                 {
                     text: 'Reporting',
-                    link: '/reporting',
+                    link: '/migraine/reporting',
                     icon: 'fa-bar-chart'
                 },
                 {
                     text: 'Admin',
-                    link: '/admin',
+                    link: '/migraine/admin',
                     icon: 'fa-cog'
                 }
             ]
