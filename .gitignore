@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # OSX
-.idea/
-
+.idea/*
+/.idea/
 # Compiled css
-styles/*.css
+/src/styles/*.css

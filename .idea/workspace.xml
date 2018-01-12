@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5645e236-805c-46af-a5bf-e867324244bf" name="Default" comment="">
+    <list default="true" id="5645e236-805c-46af-a5bf-e867324244bf" name="Default" comment="remove .idea and compiled css">
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/migrane.iml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
@@ -9,6 +9,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/preferred-vcs.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/admin.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/bottomMenu.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/button.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/chart.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/reporting.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/styles/variables.css" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,8 +60,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="188">
+              <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -348,7 +355,7 @@
       <option name="presentableId" value="Default" />
       <updated>1514324122082</updated>
       <workItem from="1514324123656" duration="105711000" />
-      <workItem from="1515476445529" duration="2599000" />
+      <workItem from="1515476445529" duration="2766000" />
     </task>
     <task id="LOCAL-00001" summary="add github pages">
       <created>1514335867302</created>
@@ -553,11 +560,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515777228542</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="remove .idea and compiled css">
+      <created>1515777333668</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1515777333668</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108310000" />
+    <option name="totallyTimeSpent" value="108477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="727" extended-state="0" />
@@ -594,7 +608,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add margin to body" />
     <MESSAGE value="add correct gh-pages homepage" />
     <MESSAGE value="add charts and CSV dump; add pressure to data" />
     <MESSAGE value="remove orientation listener" />
@@ -619,7 +632,8 @@
     <MESSAGE value="add link to GH page" />
     <MESSAGE value="fix localstorage testing package" />
     <MESSAGE value="remove .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
+    <MESSAGE value="remove .idea and compiled css" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove .idea and compiled css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -695,6 +709,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -954,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        <state relative-caret-position="188">
+          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
           <folding />
         </state>
       </provider>
