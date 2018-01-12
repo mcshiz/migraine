@@ -1,0 +1,20 @@
+#bottom-menubar {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background: white; }
+  #bottom-menubar a {
+    display: inline-block;
+    width: 33%;
+    height: 40px;
+    vertical-align: middle; }
+    #bottom-menubar a:visited {
+      color: black; }
+    #bottom-menubar a li {
+      list-style-type: none;
+      line-height: 40px;
+      font-size: 1.5em; }
+    #bottom-menubar a li:nth-child(2) {
+      border-right: 1px solid lightblue;
+      border-left: 1px solid lightblue; }
