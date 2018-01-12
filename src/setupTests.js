@@ -44,3 +44,53 @@ global.exampleData = [
 console.error = message => {
     throw new Error(message);
 };
+
+
+
+
+import { LocalStorage } from './__mocks__/LocalStorageMock';
+
+const local = new LocalStorage();
+
+global.localStorage = local;
+
+Object.defineProperty(global.localStorage, "getItem", {
+    enumerable: false,
+    value: jest.fn((key) => {return global.localStorage[key] || null })
+
+});
+Object.defineProperty(global.localStorage, "setItem", {
+    enumerable: false,
+    value: jest.fn((key, val = "") => {
+        global.localStorage[key] = val + '' || '';
+    })
+});
+Object.defineProperty(global.localStorage, "removeItem", {
+    enumerable: false,
+    value: jest.fn((key) => {
+        delete global.localStorage[key];
+    })
+});
+Object.defineProperty(global.localStorage, "clear", {
+    enumerable: false,
+    value: jest.fn(() => {
+        Object.keys(global.localStorage).map(key => delete global.localStorage[key]);
+
+    })
+});
+Object.defineProperty(global.localStorage, "toString", {
+    enumerable: false,
+    value: jest.fn(() => {
+        return "[object Storage]"
+
+    })
+});
+
+Object.defineProperty(global.localStorage, "key", {
+    enumerable: false,
+    value: jest.fn((idx) => {
+        return Object.keys(global.localStorage)[idx] || null
+    })
+});
+
+

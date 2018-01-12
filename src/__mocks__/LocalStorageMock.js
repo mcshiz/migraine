@@ -1,13 +1,15 @@
-let localStorage = {};
+export class LocalStorage  {
+    constructor() {
 
-export default {
-    setItem(key, value) {
-        return Object.assign(localStorage, {[key]: value});
-    },
-    getItem(key) {
-        return localStorage[key];
-    },
-    clear() {
-        localStorage = {};
+    } // end constructor
+
+    get length() {
+        return Object.keys(this).length
     }
-};
+
+    set toString(a) {
+        return '[object Storage]';
+    }
+
+}
+
