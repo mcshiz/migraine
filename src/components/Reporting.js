@@ -23,6 +23,7 @@ class Home extends Component {
         this.showCharts = this.showCharts.bind(this);
         this.showCSVDump = this.showCSVDump.bind(this);
         this.generateCSV = this.generateCSV.bind(this);
+        this.loadExampleData = this.loadExampleData.bind(this);
     }
 
     componentWillMount() {
@@ -133,6 +134,11 @@ class Home extends Component {
         })
         .catch(err => alert(err));
     }
+    loadExampleData() {
+        this.setState({
+            startDate: moment('2017-01-01')
+        })
+    }
 
     render() {
         return (
@@ -150,6 +156,7 @@ class Home extends Component {
                 <div className="action-buttons">
                     <button className="button" onClick={this.showCSVDump}>Generate CSV</button>
                     <button className="button" onClick={this.showCharts}>View Chart</button>
+                    <button className="button warning load-example-data" onClick={this.loadExampleData}>Load Example Data</button>
                 </div>
                 <span>Total Entries: {localStorage.length}</span>
                 {this.state.showCSVDump ? <TextDump csv={this.state.CSVDump}/> : null }
