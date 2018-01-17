@@ -34,7 +34,6 @@ describe('Main Router Component', () => {
     });
 
     it('Should get data from localstorage', () => {
-        const wrapper = shallow(<Main />);
         expect(localStorage.getItem('2017-12-25T17:33:33.265Z')).toEqual('{"pain":"6","work":"5","sleep":"8","notes":"notes","pressure":1030}') //FAILS
 
     });
