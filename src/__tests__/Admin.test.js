@@ -15,9 +15,4 @@ describe('Admin Component', () => {
         expect(localStorage.clear).toHaveBeenCalledTimes(1);
         expect(localStorage.length).toBe(0);
     });
-    it('Should load example data into localStorage', () => {
-        wrapper.find('.button.warning.load-example-data').simulate('click');
-        expect(localStorage.setItem).toHaveBeenCalledTimes(7);
-    })
-
 });

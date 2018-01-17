@@ -15,6 +15,7 @@ describe('Main Router Component', () => {
         expect(wrapper.find(NotFound)).toHaveLength(1);
         expect(wrapper.find(Home)).toHaveLength(0);
     });
+
     it('Shows Home at /migraine route', () => {
         const wrapper = mount(
             <MemoryRouter initialEntries={[ '/migraine' ]}>
@@ -24,19 +25,17 @@ describe('Main Router Component', () => {
         expect(wrapper.find(NotFound)).toHaveLength(0);
         expect(wrapper.find(Home)).toHaveLength(1);
     });
-    it('Should get data from localstorage', () => {
-        let obj = {
-            date: "2017-12-23T17:33:33.265Z",
-            obj: {"hello":"world"}
-        };
 
-        localStorage.setItem(obj.date, JSON.stringify(obj.obj));
-        expect(localStorage.setItem).toHaveBeenCalledTimes(1); // PASSES
+    it('Should load example data into localStorage', () => {
         const wrapper = shallow(<Main />);
-        console.log(localStorage.__STORE__); // LOOKS LIKE IT SHOULD
-        console.log(wrapper.state()); // EMPTY! because all the data is placed into localStorage.__STORE__
-        expect(localStorage.getItem).toHaveBeenCalledTimes(1) //FAILS
+        wrapper.instance().loadExampleData();
+        expect(localStorage.length).toBe(7);
+        expect(localStorage.setItem).toHaveBeenCalledTimes(7);
+    });
 
+    it('Should get data from localstorage', () => {
+        const wrapper = shallow(<Main />);
+        expect(localStorage.getItem('2017-12-25T17:33:33.265Z')).toEqual('{"pain":"6","work":"5","sleep":"8","notes":"notes","pressure":1030}') //FAILS
 
-    })
+    });
 });

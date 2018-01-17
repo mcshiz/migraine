@@ -13,7 +13,6 @@ exports[`Admin Component Should compare the component with a snapshot 1`] = `
   <div>
     <button
       className="button warning load-example-data"
-      onClick={[Function]}
     >
       Load Example Data
     </button>
