@@ -4,15 +4,11 @@ class Admin extends React.Component {
     constructor() {
         super();
         this.clearData = this.clearData.bind(this);
-        this.loadExampleData = this.loadExampleData.bind(this)
-
     }
     clearData(){
         localStorage.clear();
         alert('Data Cleared');
     }
-
-
     render() {
         return (
             <div>

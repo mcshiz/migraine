@@ -62,9 +62,9 @@ class Main extends React.Component {
             {date: "2017-12-28T17:33:33.265Z", obj: {"pain":"3","work":"1","sleep":"9","notes":"notes","pressure":1026}},
             {date: "2017-12-29T17:33:33.265Z", obj: {"pain":"1","work":"3","sleep":"10","notes":"notes","pressure":1020}},
         ];
-        exampleData.map((obj) => {
+        exampleData.map((obj) =>
             localStorage.setItem(obj.date, JSON.stringify(obj.obj))
-        });
+        );
         alert("Data Loaded")
     }
 

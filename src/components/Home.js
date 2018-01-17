@@ -32,8 +32,6 @@ class Home extends Component {
             return;
         }
         this.setState({loading: true});
-        let pressure = null;
-        let location = "";
         let notes = document.getElementById('notes') ? document.getElementById('notes').value : "";
         let obj = {
             pain: this.state.painValue,
