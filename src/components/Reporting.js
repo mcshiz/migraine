@@ -137,7 +137,8 @@ class Home extends Component {
     loadExampleData() {
         this.setState({
             startDate: moment('2017-01-01')
-        })
+        });
+        this.props.loadExampleData()
     }
 
     render() {
